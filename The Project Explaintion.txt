@@ -1,0 +1,18 @@
+Project Thermal ditector site
+
+
+The manage.py file is the main entry point of the Django project. It is used to start the development server, open the Django shell, apply database migrations, and run administrative commands. Every time you run the website or interact with the database from the command line, manage.py is involved.
+
+The inner mySite folder contains the global configuration of the project. The settings.py file defines important settings such as installed applications, database configuration, static files, and middleware. The urls.py file controls how incoming web requests are routed to different applications. The wsgi.py and asgi.py files are used when deploying the project on a production server or when handling asynchronous communication.
+
+The core folder is the main application of the project and contains all the business logic. The models.py file defines the ThermalData model, which represents the database table storing temperature, humidity, and pressure values. The views.py file contains functions that handle user requests, such as rendering the dashboard page and returning the latest sensor data as JSON. The urls.py file inside core connects specific URLs to these view functions, allowing the frontend to access backend logic.
+
+The templates/core/dashboard.html file defines the user interface of the website. It displays the thermal values and uses JavaScript to periodically request updated data from the API endpoint. This file acts as the bridge between the backend logic and what the user sees in the browser.
+
+The migrations folder stores Django migration files, which track changes to the database structure. These files are automatically generated when models are modified and ensure the database schema stays synchronized with the application code. The db.sqlite3 file is the actual database where all thermal data received from the device is stored.
+
+The static folder contains static resources such as CSS and JavaScript files. These files control the visual appearance of the site and client-side behavior but do not contain backend logic.
+
+The meshtastic_listener.py file is a standalone background script that runs independently of the web server. It listens for LoRa packets sent by the Heltec V3 device through the Meshtastic network and saves the received sensor data into the Django database using the ORM. This file is responsible for connecting the physical device to the web application.
+
+Finally, the venv folder contains the virtual Python environment. It isolates project dependencies such as Django, Meshtastic, and other libraries to ensure the project runs consistently and avoids conflicts with system-wide Python installations.

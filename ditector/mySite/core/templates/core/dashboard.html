@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thermal Detector</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=1">
+</head>
+<body>
+    <script src="{% static 'app.js' %}?v=1"></script>
+
+    <h1 class="title">THERMAL DETECTOR</h1>
+
+    <div class="display" id="block">
+        <div class="row">
+            <span class="label">🌡 Temperature</span>
+            <span class="value red">
+                <span id="temp">----</span>
+                <span class="unit">°C</span>
+            </span>
+        </div>
+
+        <div class="row">
+            <span class="label">💧Humidity</span>
+            <span class="value red">
+                <span id="hum">----</span>
+                <span class="unit">%</span>
+            </span>
+        </div>
+
+        <div class="row">
+            <span class="label">📈 Pressure</span>
+            <span class="value red">
+                <span id="pres">----</span>
+                <span class="unit">hPa</span>
+            </span>
+        </div>
+    </div>
+</body>
